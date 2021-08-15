@@ -6,6 +6,14 @@ def xyz_writer(array, filename = 'test'):
         for coordinates in array:
             f.write("{} {} {}\n".format(coordinates[0], coordinates[1], coordinates[2]))
     f.close() 
+    
+def xyz_parser(filename):
+    text = open(filename, "r")
+
+    atom_list = []
+    for line in text:
+        atom_list.append(list(map(float, line.split()[:3])))
+    return np.array(atom_list)
    
 def laplacian_parser(filename):
     """filename is the name of persistent laplacian"""
