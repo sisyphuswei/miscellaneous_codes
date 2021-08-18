@@ -7,6 +7,17 @@ def xyz_writer(array, filename = 'test'):
             f.write("{} {} {}\n".format(coordinates[0], coordinates[1], coordinates[2]))
     f.close() 
     
+def matrix_writer(array, filename = 'test'):
+    """array is a numpy array or list of lists. We write it into a txt file.
+    filename is the name of the txt file.
+    """
+    with open("{}.txt".format(filename), 'w') as f:
+        for row in array:
+            for i, entry in enumerate(row):
+                f.write("{} ".format(entry))
+            f.write("\n")
+    f.close() 
+    
 def xyz_parser(filename):
     text = open(filename, "r")
 
