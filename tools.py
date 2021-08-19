@@ -1,12 +1,3 @@
-def xyz_writer(array, filename = 'test'):
-    """The array is a numpy array or a list of lists. We write it into a xyz file.
-    filename is a string, which is the name of the xyz file being created.
-    """
-    with open("{}.xyz".format(filename), 'w') as f:
-        for coordinates in array:
-            f.write("{} {} {}\n".format(coordinates[0], coordinates[1], coordinates[2]))
-    f.close() 
-    
 def matrix_writer(array, filename = 'test'):
     """array is a numpy array or list of lists. We write it into a txt file.
     filename is the name of the txt file.
@@ -17,6 +8,13 @@ def matrix_writer(array, filename = 'test'):
                 f.write("{} ".format(entry))
             f.write("\n")
     f.close() 
+    
+def matrix_reader(filename = 'test.txt'):
+    text = open(filename, "r")
+    array_list = []
+    for line in text:
+        array_list.append(list(map(float, line.split())))
+    return np.array(array_list) 
     
 def xyz_parser(filename):
     text = open(filename, "r")
