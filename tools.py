@@ -51,3 +51,14 @@ def laplacian_parser(filename):
             mat = []
     text.close()
     return matrices
+
+def pqr_parser(filename):
+    import numpy as np
+    f = open('./experiments/1e68_model1.pqr', 'r')
+    coordinates = []
+    charges = []
+    for line in f:
+        if len(line.split()) == 10:
+            coordinates.append(list(map(float, line.split()[-5:-2])))
+            charges.append(float(line.split()[-2]))
+    return np.array(coordinates), np.array(charges)
