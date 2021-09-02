@@ -18,6 +18,9 @@ def matrix_reader(filename = 'test.txt'):
     return np.array(array_list)  
 
 def array_reader(filename = 'test.txt'):
+    """
+    Return a list.
+    """
     text = open(filename, "r")
     array_list = []
     for line in text:
