@@ -1,3 +1,21 @@
+def mkdir_p(dir):
+    """make a directory (dir) if it doesn't exist"""
+    if not os.path.exists(dir):
+        os.makedirs(dir, exist_ok=True)
+        
+def array_writer(array, filename = 'test.txt'):
+    """
+    The array is a numpy array or list of lists. 
+    We write it into a txt file.
+    filename is the name of the txt file.
+    """
+    with open(filename, 'w') as f:
+        for row in array:
+            for i, entry in enumerate(row):
+                f.write("{} ".format(entry))
+            f.write("\n")
+    f.close() 
+
 def matrix_writer(array, filename = 'test.txt'):
     """array is a numpy array or list of lists. We write it into a txt file.
     filename is the name of the txt file.
