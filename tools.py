@@ -72,7 +72,7 @@ def laplacian_parser(filename):
 
 def pqr_parser(filename):
     import numpy as np
-    f = open('./experiments/1e68_model1.pqr', 'r')
+    f = open(filename, 'r')
     coordinates = []
     charges = []
     for line in f:
