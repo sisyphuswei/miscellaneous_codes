@@ -6,25 +6,16 @@ def mkdir_p(dir):
 def array_writer(array, filename = 'test.txt'):
     """
     The array is a numpy array or list of lists. 
-    We write it into a txt file.
-    filename is the name of the txt file.
+    We write it into a file.
+    filename is the name of the output file.
     """
+    array = np.array(array)
     with open(filename, 'w') as f:
-        for row in array:
-            for i, entry in enumerate(row):
-                f.write("{} ".format(entry))
-            f.write("\n")
-    f.close() 
-
-def matrix_writer(array, filename = 'test.txt'):
-    """array is a numpy array or list of lists. We write it into a txt file.
-    filename is the name of the txt file.
-    """
-    with open(filename, 'w') as f:
-        for row in array:
-            for i, entry in enumerate(row):
-                f.write("{} ".format(entry))
-            f.write("\n")
+        for i, row in enumerate(array):
+            for item in row:
+                f.write("{} ".format(item))
+            if i != (array.shape[0]-1): # make sure that the last line is not empty.
+                f.write("\n")
     f.close() 
     
 def matrix_reader(filename = 'test.txt'):
