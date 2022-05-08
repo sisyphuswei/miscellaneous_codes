@@ -26,16 +26,16 @@ def matrix_reader(filename = 'test.txt'):
     text.close()
     return np.array(array_list)  
 
-def array_reader(filename = 'test.txt'):
+def array_parser(filename = 'test.txt'):
     """
-    Return a list.
+    Return a list of lists.
     """
-    text = open(filename, "r")
-    array_list = []
-    for line in text:
-        array_list.append(list(map(float, line.split())))
-    text.close()
-    return array_list
+    res = []
+    with open(filename, 'r') as f:
+        for line in f:
+            res.append(list(map(float, line.split())))
+    f.close()
+    return res
     
 def xyz_parser(filename):
     text = open(filename, "r")
